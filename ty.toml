@@ -1,0 +1,2 @@
+[environment]
+python = "/home/rgoetz/.local/share/uv/tools/conan/bin/python"   # or the venv dir, e.g. ".venv"   
