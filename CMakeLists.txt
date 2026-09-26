@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.30)
 
 project(
-    <PROJECT-NAME>
+    Template
     VERSION 0.0.1
     DESCRIPTION "Project description goes here"
     LANGUAGES CXX
@@ -17,24 +17,26 @@ execute_process(
 )
 
 find_package(spdlog REQUIRED)
+find_package(GTest REQUIRED)
 
-add_executable(<PROJECT-NAME> src/main.cpp)
+add_executable(Template src/main.cpp)
 
-target_compile_features(<PROJECT-NAME> PRIVATE cxx_std_23)
-set_target_properties(<PROJECT-NAME> PROPERTIES CXX_EXTENSIONS OFF)
+target_compile_features(Template PRIVATE cxx_std_23)
+set_target_properties(Template PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_options(
-    <PROJECT-NAME>
+    Template
     PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wnon-virtual-dtor
 )
 
-target_link_libraries(<PROJECT-NAME> spdlog::spdlog)
+target_link_libraries(Template spdlog::spdlog)
+target_link_libraries(Template gtest::gtest)
 
 add_custom_command(
-    TARGET <PROJECT-NAME>
+    TARGET Template
     POST_BUILD
     COMMAND ln
     ARGS
-        -s $<TARGET_FILE:<PROJECT-NAME>>
-        ${CMAKE_SOURCE_DIR}/$<TARGET_FILE_NAME:<PROJECT-NAME>
+        -f -s $<TARGET_FILE:Template>
+        ${CMAKE_SOURCE_DIR}/$<TARGET_FILE_NAME:Template>
     COMMENT "Create a symlink to the built binary in the workspace directory."
 )

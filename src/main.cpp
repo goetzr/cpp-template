@@ -1,6 +1,10 @@
 #include <print>
 
+#include <spdlog/spdlog.h>
+
 int main(int argc, char** argv) {
-  std::println("Hello, world.");
+  spdlog::info("Application started");
+  std::println("Hello, world");
+
   return 0;
 }
