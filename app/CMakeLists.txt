@@ -1,9 +1,7 @@
 add_executable(app main.cpp)
 
-target_link_libraries(app PRIVATE app::core)
-
 find_package(spdlog REQUIRED)
-target_link_libraries(app spdlog::spdlog)
+target_link_libraries(app PRIVATE app::core spdlog::spdlog)
 
 add_custom_command(
     TARGET app

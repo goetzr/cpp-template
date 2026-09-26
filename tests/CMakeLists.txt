@@ -1,12 +1,8 @@
 add_executable(tests core_tests.cpp)
 
-target_link_libraries(tests PRIVATE app::core)
-
 find_package(spdlog REQUIRED)
-target_link_libraries(tests spdlog::spdlog)
-
 find_package(GTest REQUIRED)
-target_link_libraries(tests gtest::gtest)
+target_link_libraries(tests PRIVATE app::core spdlog::spdlog gtest::gtest)
 
 include(GoogleTest)
 gtest_discover_tests(tests)

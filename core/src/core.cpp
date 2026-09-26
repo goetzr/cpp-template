@@ -4,7 +4,7 @@
 
 #include "app/core.hpp"
 
-bool process(string_view s) {
+bool process(std::string_view s) {
   spdlog::info(std::format("Processing input: {}", s));
   return !s.empty();
 }
