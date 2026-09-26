@@ -1,4 +1,4 @@
-add_executable(tests core_tests.cpp)
+add_executable(tests main.cpp core_tests.cpp)
 
 find_package(spdlog REQUIRED)
 find_package(GTest REQUIRED)
@@ -11,8 +11,7 @@ add_custom_command(
     TARGET tests
     POST_BUILD
     COMMAND ln
-    ARGS
-        -f -s $<TARGET_FILE:tests> ${CMAKE_SOURCE_DIR}/$<TARGET_FILE_NAME:tests>
+    ARGS -f -s $<TARGET_FILE:tests> ${CMAKE_SOURCE_DIR}/trun
     COMMENT
         "Create a symlink to the test execeutable in the workspace directory."
 )

@@ -7,6 +7,6 @@ add_custom_command(
     TARGET app
     POST_BUILD
     COMMAND ln
-    ARGS -f -s $<TARGET_FILE:app> ${CMAKE_SOURCE_DIR}/$<TARGET_FILE_NAME:app>
+    ARGS -f -s $<TARGET_FILE:app> ${CMAKE_SOURCE_DIR}/arun
     COMMENT "Create a symlink to the application in the workspace directory."
 )
