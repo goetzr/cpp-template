@@ -13,5 +13,5 @@ add_custom_command(
     COMMAND ln
     ARGS -f -s $<TARGET_FILE:tests> ${CMAKE_SOURCE_DIR}/trun
     COMMENT
-        "Create a symlink to the test execeutable in the workspace directory."
+        "Create a symlink to the test executable in the workspace directory."
 )

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include <app/core.hpp>
+#include "app/core.hpp"
 
 TEST(processTest, ReturnsTrueWhenInputNotEmpty) {
   std::string input("Test");
